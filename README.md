@@ -18,13 +18,13 @@ This document contains the following details:
 - How to Use the Ansible Build
 
 A walkthrough of ELK, Filebeat, and Metricbeat setup can be found in:
--Files/ELK_Filebeat_Metricbeat_Setup_Walkthrough.pdf
+- Files/ELK_Filebeat_Metricbeat_Setup_Walkthrough.pdf
 
 Testing and exploring Kibana after setup can be found in:
--Files/Exploring Kibana.pdf
+- Files/Exploring Kibana.pdf
 
 The sample interview question from the project can be found in:
--Files/Interview Questions.pdf
+- Files/Interview Questions.pdf
 
 ### Description of the Topology
 
