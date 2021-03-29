@@ -17,6 +17,15 @@ This document contains the following details:
   - Machines Being Monitored
 - How to Use the Ansible Build
 
+A walkthrough of ELK, Filebeat, and Metricbeat setup can be found in:
+-Files/ELK_Filebeat_Metricbeat_Setup_Walkthrough.pdf
+
+Testing and exploring Kibana after setup can be found in:
+-Files/Exploring Kibana.pdf
+
+The sample interview question from the project can be found in:
+-Files/Interview Questions.pdf
+
 ### Description of the Topology
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
