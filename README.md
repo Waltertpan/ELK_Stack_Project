@@ -141,9 +141,9 @@ Installing Metricbeat on the DVWA Container with Ansible
 - Check on Kibana that logs are being received
 
 ELK, Filebeat, and Metricbeat configuration files location
-- Ansible/ansible.cfg
-- Ansible/filebeat-config.yml
-- Ansible/metricbeat-config.yml
 
-ELK, filebeat, Metricbeat setup walkthrough
-- Ansible/ELK_Filebeat_Metricbeat_Setup_Walkthrough.pdf
+![Ansible Configuration File](Ansible/ansible.cfg)
+
+![Filebeat Configuration File](Ansible/filebeat-config.yml)
+
+![Metricbeat Configuration File](Ansible/metricbeat-config.yml)
