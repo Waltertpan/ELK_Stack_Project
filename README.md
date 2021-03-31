@@ -117,10 +117,9 @@ Installing ELK from Ansible
 - Run the install-elk.yml playbook
 - Check that the installation worked by navigating to http://ELK-SERVER_public_IP]:5601/app/kibana
 - The following screenshot will display if Kibana successfully launches 
+- If there are issues accessing the kibana page above, check Network Security Group Inbound rules on Azure.
 
 ![Kibana](Images/Kibana_Webpage.png)
-
-- If there are issues accessing the kibana page above, check Network Security Group Inbound rules on Azure.
 
 Installing Filebeat on the DVWA Container with Ansible
 - Make sure the kibana page above is accessible
