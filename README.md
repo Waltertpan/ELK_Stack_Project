@@ -228,6 +228,21 @@ The crossed out section is your networks public IP.
 ### Set up Ansible Playbooks
 
 - add Virtual Machines Web-1, Web-2, and Web-3 to the host file.
-- run ![anc](Ansible/ansible_config.yml) on the jump box
+- run ![ansible](Ansible/ansible_config.yml) on the jump box
 
 ### Create Load Balancer
+
+Search and select Load Balancer on the search bar and select create.
+![LB](Images/LB.PNG)
+
+Create load balancer with a static IP address
+![LB1](Images/LB1.PNG)
+![LB2](Images/LB2.PNG)
+
+Create a health pool
+![LB2_1](Images/LB2_1.PNG)
+![LB2_2](Images/LB2_2.PNG)
+
+Add virtual machines to the backend pool
+![LB5_1](Images/LB5.PNG)
+![LB5_2](Images/LB5_1.PNG)
