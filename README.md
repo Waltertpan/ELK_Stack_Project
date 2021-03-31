@@ -160,27 +160,27 @@ Before setting up ELK, the following DVWA network needs to be constructed:
 
 Search and select virual network on the search bar and select create.
 
-!(VN0)[Images/Setup_vNet.PNG]
+![VN0](Images/Setup_vNet.PNG)
 
 Select the following options:
 
-!(VN1)[Images/Setup_vNet_1.PNG]
+![VN1](Images/Setup_vNet_1.PNG)
 
-!(VN2)[Images/Setup_vNet_2.PNG]
+![VN2](Images/Setup_vNet_2.PNG)
 
-!(VN3)[Images/Setup_vNet_3.PNG]
+![VN3](Images/Setup_vNet_3.PNG)
 
 ### Create a Network Security Group
 
 Search and select Network Security Group on the search bar and select create.
 
-!(NSG0)[Images/Setup_NSG.PNG]
+![NSG0](Images/Setup_NSG.PNG)
 
 Select the following options:
 
-!(NSG1)[Images/Setup_NSG_1.PNG]
+![NSG1](Images/Setup_NSG_1.PNG)
 
-!(NSG2)[Images/Setup_NSG_2.PNG]
+![NSG2](Images/Setup_NSG_2.PNG)
 
 ### Create a Jump-Box
 
