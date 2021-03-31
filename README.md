@@ -180,13 +180,43 @@ Select the following options:
 
 ![NSG1](Images/Setup_NSG_1.PNG)
 
+Add inbound security rules by selecting the add button from the Inbound Security Rules Settings.
+
 ![NSG2](Images/Setup_NSG_2.PNG)
 
 ### Create a Jump-Box
 
+Search and select Virtual Machine on the search bar and select create.
+
+![JB](Images/Create_VM.png)
+
+Select the following options:
+
+![JB](Images/Create_jumpBox_1.PNG)
+
+![JB](Images/Create_jumpBox_2.PNG)
+
+![JB](Images/Create_jumpBox.PNG)
+
 ### Create a Virtual Machine
 
+Search and select Virtual Machine on the search bar and select create.
+
+![JB](Images/Create_VM.png)
+
+Select the following options:
+
+![JB](Images/Create_VM_1.png)
+
+![JB](Images/Create_VM_2.png)
+
 ### Set Network Security Inbound Rules
+
+From Network Security Group add the following inbound security rules:
+
+![SR](Images/Setup_NSG_2.PNG)
+
+The crossed out section is your networks public IP.
 
 ### Set up Docker and Containers
 
