@@ -150,7 +150,7 @@ ELK, Filebeat, and Metricbeat configuration files location
 
 
 
-### Setting up DVWA Container
+### Overview for setting up DVWA Container
 
 Before setting up ELK, the following DVWA network needs to be constructed:
 
@@ -220,6 +220,14 @@ The crossed out section is your networks public IP.
 
 ### Set up Docker and Containers
 
+- SSH into the jump-box
+- install docker.io
+- Verify Docker service is running
+- Pull and launch Ansible container
+
 ### Set up Ansible Playbooks
+
+- add Virtual Machines Web-1, Web-2, and Web-3 to the host file.
+- run ![anc](Ansible/ansible_config.yml) on the jump box
 
 ### Create Load Balancer
