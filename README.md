@@ -6,9 +6,11 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the filebeat-playbook.yml file may be used to install only certain pieces of it, such as Filebeat.
 
-  - Ansible/install-elk.yml
-  - Ansible/filebeat-playbook.yml
-  - Ansible/metricbeat-playbook.yml
+![Install ELK](Ansible/install-elk.yml)
+
+![Filebeat Playbook](Ansible/filebeat-playbook.yml)
+
+![Metricbeat Playbook](Ansible/metricbeat-playbook.yml)
 
 This document contains the following details:
 - Description of the Topology
@@ -20,7 +22,7 @@ This document contains the following details:
 
 A walkthrough of ELK, Filebeat, and Metricbeat setup can be found in:
 
-![ELK_Filebeat_Metricbeat_Setup_Walkthrough](Files/ELK_Filebeat_Metricbeat_Setup_Walkthrough.pdf)
+![ELK_Filebeat Metricbeat Setup Walkthrough](Files/ELK_Filebeat_Metricbeat_Setup_Walkthrough.pdf)
 
 Testing and exploring Kibana after setup can be found in:
 
