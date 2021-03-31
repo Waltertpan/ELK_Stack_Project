@@ -150,7 +150,7 @@ ELK, Filebeat, and Metricbeat configuration files location
 
 
 
-### Overview for setting up DVWA Container
+### Brief overview for setting up DVWA Container
 
 Before setting up ELK, the following DVWA network needs to be constructed:
 
@@ -198,6 +198,8 @@ Select the following options:
 
 ![JB](Images/Create_jumpBox.PNG)
 
+The process of adding an SSH key to the jumpbox can be found in ![ELK_Filebeat Metricbeat Setup Walkthrough](Files/ELK_Filebeat_Metricbeat_Setup_Walkthrough.pdf)
+
 ### Create a Virtual Machine
 
 Search and select Virtual Machine on the search bar and select create.
@@ -210,12 +212,15 @@ Select the following options:
 
 ![JB](Images/Create_VM_2.png)
 
+Repeat the process to create Web-1, Web-2, and Web-3.
+
 ### Set Network Security Inbound Rules
 
 From Network Security Group add the following inbound security rules:
 
 ![SR](Images/Setup_NSG_2.PNG)
 
+Add the rules above to allow SSH into jump box, SSH from from Jump Box to the virtual machines, and access of HTTP.
 The crossed out section is your networks public IP.
 
 ### Set up Docker and Containers
