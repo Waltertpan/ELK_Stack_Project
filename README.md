@@ -220,7 +220,7 @@ From Network Security Group add the following inbound security rules:
 
 ![SR](Images/Setup_NSG_2.PNG)
 
-Add the rules above to allow SSH into jump box, SSH from from Jump Box to the virtual machines, and access of HTTP.
+Add the rules above to allow SSH into jump box, Jump Box to the virtual Netowrk, and access of HTTP.
 The crossed out section is your networks public IP.
 
 ### Set up Docker and Containers
@@ -233,6 +233,7 @@ The crossed out section is your networks public IP.
 ### Set up Ansible Playbooks
 
 - add Virtual Machines Web-1, Web-2, and Web-3 to the host file.
+- Input the VMs local IP + ansible_python_interpreter=/usr/bin/python3
 - run ![ansible](Ansible/ansible_config.yml) on the jump box
 
 ### Create Load Balancer
