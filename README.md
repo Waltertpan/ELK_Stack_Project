@@ -24,11 +24,11 @@ A walkthrough of ELK, Filebeat, and Metricbeat setup can be found in:
 
 Testing and exploring Kibana after setup can be found in:
 
-![Exploring Kibana](Files/Exploring Kibana.pdf)
+![Exploring Kibana](Files/Exploring_Kibana.pdf)
 
 The sample interview question from the project can be found in:
 
-![Interview Questions](Files/Interview Questions.pdf)
+![Interview Questions](Files/Interview_Questions.pdf)
 
 ### Description of the Topology
 
