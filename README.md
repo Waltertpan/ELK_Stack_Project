@@ -14,7 +14,7 @@ These files have been tested and used to generate a live DVWA deployment on Azur
 
 This section contains the following details:
 - Setup of network above
-- Deplaymen of DVWA
+- Deployment of DVWA
 - Test redundancy systems
 
 ### Description of the Topology
@@ -95,7 +95,7 @@ Create a new virtual network.
 
 ![Virtual_Networks](Images/DVWA_images/Virtual_Networks_2.PNG)
 
-Input the follwing settings:
+Input the following settings:
 
 ![Virtual_Networks](Images/DVWA_images/Virtual_Networks_3.PNG)
 ![Virtual_Networks](Images/DVWA_images/Virtual_Networks_4.PNG)
@@ -111,7 +111,7 @@ Create a new network security group.
 
 ![Virtual_Networks](Images/DVWA_images/Network_Security_Groups_2.PNG)
 
-Input the follwing settings:
+Input the following settings:
 
 ![Virtual_Networks](Images/DVWA_images/Network_Security_Groups_3.PNG)
 ![Virtual_Networks](Images/DVWA_images/Network_Security_Groups_4.PNG)
@@ -134,7 +134,7 @@ Create a new network security group.
 
 ![Virtual_Networks](Images/DVWA_images/Virtual_Machine_2.PNG)
 
-Input the follwing settings and copy the SSH key above to the SSH Public Key field:
+Input the following settings and copy the SSH key above to the SSH Public Key field:
 
 ![Virtual_Networks](Images/DVWA_images/Virtual_Machine_JB_1.PNG)
 ![Virtual_Networks](Images/DVWA_images/Virtual_Machine_JB_2.PNG)
@@ -150,7 +150,7 @@ Create a new network security group.
 
 ![Virtual_Networks](Images/DVWA_images/Virtual_Machine_2.PNG)
 
-Input the follwing settings, and do not set a public IP.
+Input the following settings, and do not set a public IP.
 Input the SSH key above for now, this will be updated later.
 
 ![Virtual_Networks](Images/DVWA_images/Virtual_Machine_Web_1.PNG)
@@ -160,7 +160,7 @@ Input the SSH key above for now, this will be updated later.
 
 Repeat these steps to create web-1, web-2, and web-3.
 
-### Create network security group rule to allow access to jumpbox
+### Create network security group rule to allow access to jump box
 Search network security group in the search bar.
 
 ![Virtual_Networks](Images/DVWA_images/Network_Security_Groups_1.PNG)
@@ -169,34 +169,34 @@ Create a network security group for the virtual network.
 
 ![Virtual_Networks](Images/DVWA_images/RedTeam_Rule_1.PNG)
 
-Create rule to allow Clinet IP access to jump box.
+Create rule to allow client IP access to jump box.
 
 ![Virtual_Networks](Images/DVWA_images/RedTeam_Rule_2.PNG)
 
-### Create network security group rule to allow jumpbox access to the network
+### Create network security group rule to allow jump box access to the network
 Search network security group in the search bar.
 
 ![Virtual_Networks](Images/DVWA_images/Network_Security_Groups_1.PNG)
 
-Create rule to allow jumpbox access to the network.
+Create rule to allow jump box access to the network.
 
 ![Virtual_Networks](Images/DVWA_images/RedTeam_Rule_3.PNG)
 
 ### SSH into Jump Box
 
-SSH into the jumpbox with the following IP and commands:
+SSH into the jump box with the following IP and commands:
 
 ![Virtual_Networks](Images/DVWA_images/Jump_Box_SSH_1.PNG)
 ![Virtual_Networks](Images/DVWA_images/Jump_Box_SSH_2.PNG)
 ![Virtual_Networks](Images/DVWA_images/Jump_Box_SSH_3.PNG)
 ![Virtual_Networks](Images/DVWA_images/Jump_Box_SSH_4.PNG)
 
-Check user priviliages.
+Check user privileges.
 
 ![Virtual_Networks](Images/DVWA_images/Jump_Box_SSH_5.PNG)
 
 ### Set up Ansible containers on the Jump Box
-Update apts on jumpbox
+Update apts on jump box
 
 ![Virtual_Networks](Images/DVWA_images/Jump_Box_Containers_1.PNG)
 
@@ -216,12 +216,12 @@ Pull ansible
 
 ![Virtual_Networks](Images/DVWA_images/Jump_Box_Containers_5.PNG)
 
-In root, rul ansible
+In root, run ansible
 
 ![Virtual_Networks](Images/DVWA_images/Jump_Box_Containers_6.PNG)
 
 ### Set up provisioners from the Ansible container
-Check list of containers in the jumpbox
+Check list of containers in the jump box
 
 ![Virtual_Networks](Images/DVWA_images/Provisioner_1.PNG)
 
@@ -258,11 +258,11 @@ Ping the local IPs to verify that it is working.
 
 ![Virtual_Networks](Images/DVWA_images/Provisioner_11.PNG)
 
-Change the Ansible configuration file by using the command nano /etc/ansible/ansible.cfg and uncomment remote_user line and replace root with sysadmin (or your choosen user name).
+Change the Ansible configuration file by using the command nano /etc/ansible/ansible.cfg and uncomment remote_user line and replace root with sysadmin (or your chosen user name).
 The configuration file can be found in ![Ansible Config. File](Ansible/ansible.cfg)
 
 ### Set up Ansible Playbooks
-Lauch the Ansible container from the Jump Box
+Launch the Ansible container from the Jump Box
 
 ![Virtual_Networks](Images/DVWA_images/Provisioner_1.PNG)
 ![Virtual_Networks](Images/DVWA_images/Provisioner_2.PNG)
@@ -292,7 +292,7 @@ Select the following settings.
 
 ![Virtual_Networks](Images/DVWA_images/Load_Balancer_3.PNG)
 
-Create a Health Probe with the follwoing settings.
+Create a Health Probe with the following settings.
 
 ![Virtual_Networks](Images/DVWA_images/Load_Balancer_4.PNG)
 ![Virtual_Networks](Images/DVWA_images/Load_Balancer_5.PNG)
@@ -312,7 +312,7 @@ Search network security group in the search bar.
 
 ![Virtual_Networks](Images/DVWA_images/Network_Security_Groups_1.PNG)
 
-Create rule to allow port 80 access from clinet public IP.
+Create rule to allow port 80 access from client public IP.
 
 ![Virtual_Networks](Images/DVWA_images/DVWA_1.PNG)
 
@@ -379,7 +379,7 @@ A walkthrough of ELK, Filebeat, and Metricbeat setup can be found in:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
 Load balancing ensures that the application will be highly fault tolerant, in addition to restricting access to the network.
-- Load balancers ensure system availability when a one or more components within the system fail or are overloaded by distributing the load load to redundant components.
+- Load balancers ensure system availability when a one or more components within the system fail or are overloaded by distributing the load to redundant components.
 - A jump box is a secure admin workstation used as an origination point to connect to other servers in a network for administrative tasks, and used to prevent all the servers in the network from being exposed to the public.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the log data and system metrics.
@@ -464,19 +464,19 @@ Installing ELK from Ansible
 - Run the install-elk.yml playbook
 - Check that the installation worked by navigating to http://ELK-SERVER_public_IP]:5601/app/kibana
 - The following screenshot will display if Kibana successfully launches 
-- If there are issues accessing the kibana page above, check Network Security Group Inbound rules on Azure.
+- If there are issues accessing the Kibana page above, check Network Security Group Inbound rules on Azure.
 
 ![Kibana](Images/Kibana_Webpage.png)
 
 Installing Filebeat on the DVWA Container with Ansible
-- Make sure the kibana page above is accessible
+- Make sure the Kibana page above is accessible
 - Copy the filebeat-playbook.yml file to /etc/ansible
 - Copy the file filebeat-config.yml to /etc/ansible/files
 - Run the filebeat-playbook.yml playbook
 - Check on Kibana that logs are being received
 
 Installing Metricbeat on the DVWA Container with Ansible
-- Make sure the kibana page above is accessible
+- Make sure the Kibana page above is accessible
 - Copy the metricbeat-playbook.yml file to /etc/ansible
 - Copy the file metricbeat-config.yml to /etc/ansible/files
 - Run the metricbeat-playbook.yml playbook
@@ -512,7 +512,7 @@ Select the ELK-net created in the last step and select peering.
 
 ### Obtain container SSH key
 SSH into Jump Box
-Check list of containers in the jumpbox
+Check list of containers in the jump box
 
 ![Virtual_Networks](Images/DVWA_images/Provisioner_1.PNG)
 
@@ -571,7 +571,7 @@ Create rule to allow port 22 access from jump box.
 
 ![Virtual_Networks](Images/ELK_Images/ELK_rules_1.PNG)
 
-Create rule to allow port 80 and port 5601 access from clinet public IP.
+Create rule to allow port 80 and port 5601 access from client public IP.
 
 ![Virtual_Networks](Images/ELK_Images/ELK_rules_2.PNG)
 ![Virtual_Networks](Images/ELK_Images/ELK_rules_3.PNG)
@@ -582,14 +582,14 @@ Verify that Kibana app can be reached by typing http://[ELK-SERVER]:5601/app/kib
 
 # Setting up FileBeats
 
-In the Kibana app navigate to Home/Add data/ System Logs for set up infomation.
+In the Kibana app navigate to Home/Add data/ System Logs for set up information.
 
 ![Virtual_Networks](Images/ELK_Images/Firebeat_1.PNG)
 ![Virtual_Networks](Images/ELK_Images/Firebeat_2.PNG)
 ![Virtual_Networks](Images/ELK_Images/Firebeat_3.PNG)
 
 ### Set up Ansible Playbooks
-Lauch the Ansible container from the Jump Box
+Launch the Ansible container from the Jump Box
 
 ![Virtual_Networks](Images/DVWA_images/Provisioner_1.PNG)
 ![Virtual_Networks](Images/DVWA_images/Provisioner_2.PNG)
@@ -602,7 +602,7 @@ https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/ec
 ![Virtual_Networks](Images/ELK_Images/Firebeat_5.PNG)
 ![Virtual_Networks](Images/ELK_Images/Firebeat_6.PNG)
 
-Open the filebeat configuration file and replace the following inforamation:
+Open the filebeat configuration file and replace the following information:
 - Line 1106 : Replace IP address with local IP address of ELK machine.
 - Line 1806 : Replace IP address with local IP address of ELK machine.
 
@@ -614,7 +614,7 @@ Run the filebeat-config.ylm playbook.
 
 ![Virtual_Networks](Images/ELK_Images/Firebeat_7.PNG)
 
-Verfy the logs are bring received from the module status in the Kibana app.
+Verify the logs are bring received from the module status in the Kibana app.
 In the Kibana app navigate to Home/Add data/ System Logs.
 
 ![Virtual_Networks](Images/ELK_Images/Firebeat_1.PNG)
@@ -625,26 +625,26 @@ In the Kibana app navigate to Home/Add data/ System Logs.
 
 # Setting up Metricbeat
 
-In the Kibana app navigate to Home/Add data/ System metrics for set up infomation.
+In the Kibana app navigate to Home/Add data/ System metrics for set up information.
 
 ![Virtual_Networks](Images/ELK_Images/Mbeat_1.PNG)
 ![Virtual_Networks](Images/ELK_Images/Mbeat_2.PNG)
 ![Virtual_Networks](Images/ELK_Images/Mbeat_3.PNG)
 
 ### Set up Ansible Playbooks
-Lauch the Ansible container from the Jump Box
+Launch the Ansible container from the Jump Box
 
 ![Virtual_Networks](Images/DVWA_images/Provisioner_1.PNG)
 ![Virtual_Networks](Images/DVWA_images/Provisioner_2.PNG)
 
 Copy the Metricbeat configuration file to /etc/ansible/files
-The Metricbeatconfiguration file can be obtained by:
+The Metricbeat configuration file can be obtained by:
 
 https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat
 
 ![Virtual_Networks](Images/ELK_Images/Mbeat_File_1.PNG)
 
-Open the filebeat configuration file and replace the following inforamation:
+Open the filebeat configuration file and replace the following information
 
 - Line 1106 : Replace IP address with local IP address of ELK machine.
 - Line 1806 : Replace IP address with local IP address of ELK machine.
@@ -657,7 +657,7 @@ Run the filebeat-config.ylm playbook.
 
 ![Virtual_Networks](Images/ELK_Images/Mbeat_Playbook_2.png)
 
-Verfy the logs are bring received from the module status in the Kibana app.
+Verify the logs are bring received from the module status in the Kibana app.
 In the Kibana app navigate to Home/Add data/ System Logs.
 
 ![Virtual_Networks](Images/ELK_Images/Mbeat_1.PNG)
