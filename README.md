@@ -78,20 +78,25 @@ To do this part. You must have a Microsoft Azure account.
 
 ### Create a resource group
 Search resource group in the search bar.
+
 ![Virtual_Networks](Images/DVWA_images/Resource_Group_1.PNG)
 
 Create a new resource group.
+
 ![Virtual_Networks](Images/DVWA_images/Resource_Group_2.PNG)
 ![Virtual_Networks](Images/DVWA_images/Resource_Group_3.PNG)
 
 ### Set up virtual network 
 Search virtual network in the search bar.
+
 ![Virtual_Networks](Images/DVWA_images/Virtual_Networks_1.PNG)
 
 Create a new virtual network.
+
 ![Virtual_Networks](Images/DVWA_images/Virtual_Networks_2.PNG)
 
 Input the follwing settings:
+
 ![Virtual_Networks](Images/DVWA_images/Virtual_Networks_3.PNG)
 ![Virtual_Networks](Images/DVWA_images/Virtual_Networks_4.PNG)
 ![Virtual_Networks](Images/DVWA_images/Virtual_Networks_5.PNG)
@@ -99,12 +104,15 @@ Input the follwing settings:
 
 ### Create a network security group
 Search network security group in the search bar.
+
 ![Virtual_Networks](Images/DVWA_images/Network_Security_Groups_1.PNG)
 
 Create a new network security group.
+
 ![Virtual_Networks](Images/DVWA_images/Network_Security_Groups_2.PNG)
 
 Input the follwing settings:
+
 ![Virtual_Networks](Images/DVWA_images/Network_Security_Groups_3.PNG)
 ![Virtual_Networks](Images/DVWA_images/Network_Security_Groups_4.PNG)
 
@@ -119,12 +127,15 @@ Save the output for later.
 
 ### Create a Jump Box
 Search virtual machine in the search bar.
+
 ![Virtual_Networks](Images/DVWA_images/Virtual_Machine_1.PNG)
 
 Create a new network security group.
+
 ![Virtual_Networks](Images/DVWA_images/Virtual_Machine_2.PNG)
 
 Input the follwing settings and copy the SSH key above to the SSH Public Key field:
+
 ![Virtual_Networks](Images/DVWA_images/Virtual_Machine_JB_1.PNG)
 ![Virtual_Networks](Images/DVWA_images/Virtual_Machine_JB_2.PNG)
 ![Virtual_Networks](Images/DVWA_images/Virtual_Machine_JB_3.PNG)
@@ -132,13 +143,16 @@ Input the follwing settings and copy the SSH key above to the SSH Public Key fie
 
 ### Create Web VMs for the DVWA machines
 Search virtual machine in the search bar.
+
 ![Virtual_Networks](Images/DVWA_images/Virtual_Machine_1.PNG)
 
 Create a new network security group.
+
 ![Virtual_Networks](Images/DVWA_images/Virtual_Machine_2.PNG)
 
 Input the follwing settings, and do not set a public IP.
 Input the SSH key above for now, this will be updated later.
+
 ![Virtual_Networks](Images/DVWA_images/Virtual_Machine_Web_1.PNG)
 ![Virtual_Networks](Images/DVWA_images/Virtual_Machine_Web_2.PNG)
 ![Virtual_Networks](Images/DVWA_images/Virtual_Machine_Web_3.PNG)
@@ -148,119 +162,176 @@ Repeat these steps to create web-1, web-2, and web-3.
 
 ### Create network security group rule to allow access to jumpbox
 Search network security group in the search bar.
+
 ![Virtual_Networks](Images/DVWA_images/Network_Security_Groups_1.PNG)
 
 Create a network security group for the virtual network.
+
 ![Virtual_Networks](Images/DVWA_images/RedTeam_Rule_1.PNG)
 
 Create rule to allow Clinet IP access to jump box.
+
 ![Virtual_Networks](Images/DVWA_images/RedTeam_Rule_2.PNG)
 
 ### Create network security group rule to allow jumpbox access to the network
 Search network security group in the search bar.
+
 ![Virtual_Networks](Images/DVWA_images/Network_Security_Groups_1.PNG)
 
 Create rule to allow jumpbox access to the network.
+
 ![Virtual_Networks](Images/DVWA_images/RedTeam_Rule_3.PNG)
 
 ### SSH into Jump Box
 
 SSH into the jumpbox with the following IP and commands:
+
 ![Virtual_Networks](Images/DVWA_images/Jump_Box_SSH_1.PNG)
 ![Virtual_Networks](Images/DVWA_images/Jump_Box_SSH_2.PNG)
 ![Virtual_Networks](Images/DVWA_images/Jump_Box_SSH_3.PNG)
 ![Virtual_Networks](Images/DVWA_images/Jump_Box_SSH_4.PNG)
 
 Check user priviliages.
+
 ![Virtual_Networks](Images/DVWA_images/Jump_Box_SSH_5.PNG)
 
 ### Set up Ansible containers on the Jump Box
 Update apts on jumpbox
+
 ![Virtual_Networks](Images/DVWA_images/Jump_Box_Containers_1.PNG)
+
 install docker.io
+
 ![Virtual_Networks](Images/DVWA_images/Jump_Box_Containers_2.PNG)
+
 Check docker status
+
 ![Virtual_Networks](Images/DVWA_images/Jump_Box_Containers_3.PNG)
+
 Start docker if it is not started
+
 ![Virtual_Networks](Images/DVWA_images/Jump_Box_Containers_4.PNG)
+
 Pull ansible
+
 ![Virtual_Networks](Images/DVWA_images/Jump_Box_Containers_5.PNG)
+
 In root, rul ansible
+
 ![Virtual_Networks](Images/DVWA_images/Jump_Box_Containers_6.PNG)
 
 ### Set up provisioners from the Ansible container
 Check list of containers in the jumpbox
+
 ![Virtual_Networks](Images/DVWA_images/Provisioner_1.PNG)
+
 Start the Ansible container and run it.
+
 ![Virtual_Networks](Images/DVWA_images/Provisioner_2.PNG)
+
 Obtain SSH key from the Ansible container
+
 ![Virtual_Networks](Images/DVWA_images/Provisioner_3.PNG)
+
 ![Virtual_Networks](Images/DVWA_images/Provisioner_4.PNG)
+
 From Azure, go to your Web-1 virtual network, select reset password, and update it with the SSH key from the Ansible container.
 The user name for Web-1, Web-2, and Web-3 must be the same.
+
 ![Virtual_Networks](Images/DVWA_images/Provisioner_5.PNG)
+
 Ping the IP of Web-1 from the Ansible container to verify that its working.
+
 ![Virtual_Networks](Images/DVWA_images/Provisioner_6.PNG)
+
 SSH into Web-1 to verify that its working.
+
 ![Virtual_Networks](Images/DVWA_images/Provisioner_7.PNG)
 ![Virtual_Networks](Images/DVWA_images/Provisioner_8.PNG)
+
 Get into ansible host file using the command: nano /etc/ansible/hosts
 Add the following lines in the host file
+
 ![Virtual_Networks](Images/DVWA_images/Provisioner_10.PNG)
+
 Ping the local IPs to verify that it is working.
+
 ![Virtual_Networks](Images/DVWA_images/Provisioner_11.PNG)
+
 Change the Ansible configuration file by using the command nano /etc/ansible/ansible.cfg and uncomment remote_user line and replace root with sysadmin (or your choosen user name).
 The configuration file can be found in ![Ansible Config. File](Ansible/ansible.cfg)
 
 ### Set up Ansible Playbooks
 Lauch the Ansible container from the Jump Box
+
 ![Virtual_Networks](Images/DVWA_images/Provisioner_1.PNG)
 ![Virtual_Networks](Images/DVWA_images/Provisioner_2.PNG)
 
 Create a playbook in /etc/ansible called pentest.ylm. A copy of the .ylm file can be found in ![Ansible Config. File](Ansible/Pentest.yml).
+
 ![Virtual_Networks](Images/DVWA_images/Ansible_playbook_1.PNG)
 ![Virtual_Networks](Images/DVWA_images/Ansible_playbook_2.PNG)
 Run the pentest.ylm playbook
+
 ![Virtual_Networks](Images/DVWA_images/Ansible_playbook_3.PNG)
+
 SSH into Web-1 and rule the curl command to verify that it is working.
+
 ![Virtual_Networks](Images/DVWA_images/Ansible_playbook_4.PNG)
 
 ### Create load balancing
 Search load balancer in the search bar.
+
 ![Virtual_Networks](Images/DVWA_images/Load_Balancer_1.PNG)
+
 Create a new load balancer.
+
 ![Virtual_Networks](Images/DVWA_images/Load_Balancer_2.PNG)
+
 Select the following settings.
+
 ![Virtual_Networks](Images/DVWA_images/Load_Balancer_3.PNG)
+
 Create a Health Probe with the follwoing settings.
+
 ![Virtual_Networks](Images/DVWA_images/Load_Balancer_4.PNG)
 ![Virtual_Networks](Images/DVWA_images/Load_Balancer_5.PNG)
+
 Create a backend pool and add the virtual machines to the pool.
+
 ![Virtual_Networks](Images/DVWA_images/Load_Balancer_6.PNG)
 ![Virtual_Networks](Images/DVWA_images/Load_Balancer_7.PNG)
+
 Create a load balancing rule with the following settings.
+
 ![Virtual_Networks](Images/DVWA_images/Load_Balancer_8.PNG)
 ![Virtual_Networks](Images/DVWA_images/Load_Balancer_9.PNG)
 
 ### Create network security rules to allow access to port 80
 Search network security group in the search bar.
+
 ![Virtual_Networks](Images/DVWA_images/Network_Security_Groups_1.PNG)
 
 Create rule to allow port 80 access from clinet public IP.
+
 ![Virtual_Networks](Images/DVWA_images/DVWA_1.PNG)
 
 Verify that DVWA app can be reached by typing http://[LoadBalancer_Public_IP]/setup.php
+
 ![Virtual_Networks](Images/DVWA_images/DVWA_2.PNG)
 
 ### Check and verify that load balancer is working
 
 Verify that DVWA app can be reached by typing http://[LoadBalancer_Public_IP]/setup.php
+
 ![Virtual_Networks](Images/DVWA_images/DVWA_2.PNG)
 
 In Azure, stop web-1.
+
 ![Virtual_Networks](Images/DVWA_images/Redundancy_1.PNG)
 
 Verify that DVWA app can still be reached by typing http://[LoadBalancer_Public_IP]/setup.php
+
 ![Virtual_Networks](Images/DVWA_images/Redundancy_2.PNG)
 
 # If DVWA app can reached by typing http://[LoadBalancer_Public_IP]/setup.php, the deployment is complete.
@@ -425,82 +496,109 @@ To do this part. You must have a Microsoft Azure account.
 
 ### Set up virtual network 
 Search virtual network in the search bar.
+
 ![Virtual_Networks](Images/DVWA_images/Virtual_Networks_1.PNG)
 
 Create a new virtual network with the following settings.
+
 ![Virtual_Networks](Images/ELK_Images/Virtual_Network_2.png)
 ![Virtual_Networks](Images/ELK_Images/Virtual_Network_3.png)
 
 ### Create a Peer connection between the virtual networks.
 Select the ELK-net created in the last step and select peering.
+
 ![Virtual_Networks](Images/ELK_Images/Peering1.png)
 ![Virtual_Networks](Images/ELK_Images/Peering2.png)
 
 ### Obtain container SSH key
 SSH into Jump Box
 Check list of containers in the jumpbox
+
 ![Virtual_Networks](Images/DVWA_images/Provisioner_1.PNG)
+
 Start the Ansible container and run it.
+
 ![Virtual_Networks](Images/DVWA_images/Provisioner_2.PNG)
+
 Obtain SSH key from the Ansible container
+
 ![Virtual_Networks](Images/DVWA_images/Provisioner_3.PNG)
 ![Virtual_Networks](Images/DVWA_images/Provisioner_4.PNG)
 
 ### Create an ELK-VM
 Search virtual machine in the search bar.
+
 ![Virtual_Networks](Images/DVWA_images/Virtual_Machine_1.PNG)
 
 Create a new virtual machine.
+
 ![Virtual_Networks](Images/DVWA_images/Virtual_Machine_2.PNG)
 
 Input the follwing settings and copy the SSH key above to the SSH Public Key field:
 Give the virtual machine a static public IP address.
+
 ![Virtual_Networks](Images/ELK_Images/ELK_VM_1.png)
 ![Virtual_Networks](Images/ELK_Images/ELK_VM_2.png)
 
 SSH into the virtual machine to verify that its working.
+
 ![Virtual_Networks](Images/ELK_Images/ELK_VM_3.png)
 
 ### Set up provisioners from the Ansible container
 Get into ansible host file using the command: nano /etc/ansible/hosts
 Add the following lines in the host file
+
 ![Virtual_Networks](Images/ELK_Images/ELK_Provisioner_1.PNG)
+
 Ping the local IPs to verify that it is working.
+
 ![Virtual_Networks](Images//DVWA_images/Provisioner_11.PNG)
+
 Run the ![ELK Playbook](Ansible/install-elk.yml) playbook.
+
 ![Virtual_Networks](Images/ELK_Images/ELK_Provisioner_2.PNG)
+
 SSH into the ELK-Server VM and check ELK-Server VM sudo docker ps
+
 ![Virtual_Networks](Images/ELK_Images/ELK_Provisioner_3.PNG)
 
 ### Create network security rules to allow access
 Search network security group in the search bar.
+
 ![Virtual_Networks](Images/DVWA_images/Network_Security_Groups_1.PNG)
 
 Create rule to allow port 22 access from jump box.
+
 ![Virtual_Networks](Images/ELK_Images/ELK_rules_1.PNG)
 
 Create rule to allow port 80 and port 5601 access from clinet public IP.
+
 ![Virtual_Networks](Images/ELK_Images/ELK_rules_2.PNG)
 ![Virtual_Networks](Images/ELK_Images/ELK_rules_3.PNG)
 
 Verify that Kibana app can be reached by typing http://[ELK-SERVER]:5601/app/kibana
+
 ![Virtual_Networks](Images/ELK_Images/Kibana_1.PNG)
 
 # Setting up FileBeats
 
 In the Kibana app navigate to Home/Add data/ System Logs for set up infomation.
+
 ![Virtual_Networks](Images/ELK_Images/Firebeat_1.PNG)
 ![Virtual_Networks](Images/ELK_Images/Firebeat_2.PNG)
 ![Virtual_Networks](Images/ELK_Images/Firebeat_3.PNG)
 
 ### Set up Ansible Playbooks
 Lauch the Ansible container from the Jump Box
+
 ![Virtual_Networks](Images/DVWA_images/Provisioner_1.PNG)
 ![Virtual_Networks](Images/DVWA_images/Provisioner_2.PNG)
 
 Copy the filebeat configuration file to /etc/ansible/files
 The filebeat configuration file can be obtained by:
+
 https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat
+
 ![Virtual_Networks](Images/ELK_Images/Firebeat_5.PNG)
 ![Virtual_Networks](Images/ELK_Images/Firebeat_6.PNG)
 
@@ -509,13 +607,16 @@ Open the filebeat configuration file and replace the following inforamation:
 - Line 1806 : Replace IP address with local IP address of ELK machine.
 
 Create a playbook in /etc/ansible called filebeat-playbook.yml. A copy of the .ylm file can be found in ![Ansible Config. File](Ansible/filebeat-playbook.yml).
+
 ![Virtual_Networks](Images/ELK_Images/Filebeat_playbook_1.PNG)
 
 Run the filebeat-config.ylm playbook.
+
 ![Virtual_Networks](Images/ELK_Images/Firebeat_7.PNG)
 
 Verfy the logs are bring received from the module status in the Kibana app.
 In the Kibana app navigate to Home/Add data/ System Logs.
+
 ![Virtual_Networks](Images/ELK_Images/Firebeat_1.PNG)
 ![Virtual_Networks](Images/ELK_Images/Firebeat_2.PNG)
 ![Virtual_Networks](Images/ELK_Images/Firebeat_3.PNG)
@@ -525,47 +626,42 @@ In the Kibana app navigate to Home/Add data/ System Logs.
 # Setting up Metricbeat
 
 In the Kibana app navigate to Home/Add data/ System metrics for set up infomation.
+
 ![Virtual_Networks](Images/ELK_Images/Mbeat_1.PNG)
 ![Virtual_Networks](Images/ELK_Images/Mbeat_2.PNG)
 ![Virtual_Networks](Images/ELK_Images/Mbeat_3.PNG)
 
 ### Set up Ansible Playbooks
 Lauch the Ansible container from the Jump Box
+
 ![Virtual_Networks](Images/DVWA_images/Provisioner_1.PNG)
 ![Virtual_Networks](Images/DVWA_images/Provisioner_2.PNG)
 
 Copy the Metricbeat configuration file to /etc/ansible/files
 The Metricbeatconfiguration file can be obtained by:
+
 https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat
+
 ![Virtual_Networks](Images/ELK_Images/Mbeat_File_1.PNG)
 
 Open the filebeat configuration file and replace the following inforamation:
+
 - Line 1106 : Replace IP address with local IP address of ELK machine.
 - Line 1806 : Replace IP address with local IP address of ELK machine.
 
 Create a playbook in /etc/ansible called filebeat-playbook.yml. A copy of the .ylm file can be found in ![Metricbeat Config. File](Ansible/metricbeat-playbook.yml).
+
 ![Virtual_Networks](Images/ELK_Images/Mbeat_Playbook_1.png)
 
 Run the filebeat-config.ylm playbook.
+
 ![Virtual_Networks](Images/ELK_Images/Mbeat_Playbook_2.png)
 
 Verfy the logs are bring received from the module status in the Kibana app.
 In the Kibana app navigate to Home/Add data/ System Logs.
+
 ![Virtual_Networks](Images/ELK_Images/Mbeat_1.PNG)
 ![Virtual_Networks](Images/ELK_Images/Mbeat_2.PNG)
 ![Virtual_Networks](Images/ELK_Images/Mbeat_3.PNG)
 ![Virtual_Networks](Images/ELK_Images/Mbeat_4.PNG)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
