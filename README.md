@@ -1,8 +1,8 @@
 # This document contains the following details:
-- Overview for setting up DVWA Container
+- Overview for setting up DVWA Web
 - Automated ELK Stack Deployment
 
-## Overview for setting up DVWA Container
+## Overview for setting up DVWA Web
 
 The files in this repository were used to configure the network depicted below.
 
